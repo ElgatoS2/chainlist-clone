@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+.App {
+	background: var(bg_brown);
+}
+
+button {
+	cursor: pointer;
+}
+
+.App__Scroll-Search {
+	position: sticky;
+	top: 0;
+	padding: 1.25rem;
+	background-color: var(--bg_brown);
+}
+
+.App__Scroll {
+	background-color: var(--bg_brown);
+}
+
+@media (min-width: 1000px) {
+	.App {
+		display: grid;
+		grid-template-columns: 40% 60%;
+		height: 100vh;
+		overflow: auto;
+	}
+
+	.App__Scroll {
+		height: 100vh;
+		overflow: auto;
+	}
+}
