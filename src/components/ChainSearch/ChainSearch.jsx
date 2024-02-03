@@ -2,10 +2,10 @@ import "./ChainSearch.css";
 import { ImSearch } from "react-icons/im";
 import CustomButtons from "../CustomButtons";
 
-function ChainSearch({ chainData, addNewData }) {
+function ChainSearch({ addNewData, chains }) {
 	const createFilter = (event) => {
-		const newMap = chainData.filter((i) =>
-			i.name.toLowerCase().includes(event.target.value.toLowerCase())
+		const newMap = Object.entries(chains).filter((key) =>
+			key[1]?.name.toLowerCase().includes(event.target.value.toLowerCase())
 		);
 		addNewData(newMap);
 	};

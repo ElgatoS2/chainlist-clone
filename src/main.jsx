@@ -14,8 +14,8 @@ const queryClient = new QueryClient();
 const projectId = import.meta.env.VITE_PROJECT_ID;
 
 const metadata = {
-	name: "Web3Modal",
-	description: "Web3Modal Example",
+	name: "ChainList Clone",
+	description: "My Chainlist clone",
 	url: "https://web3modal.com",
 	icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
