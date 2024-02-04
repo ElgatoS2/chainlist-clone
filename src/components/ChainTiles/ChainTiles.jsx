@@ -23,6 +23,7 @@ function ChainTiles({ id, currency, name }) {
 					buttonClass="ChainTiles__Connect-button1"
 					buttonType="2"
 					name={name}
+					id={id}
 				/>
 				<button className="ChainTiles__Connect-button2">
 					<FiChevronDown />

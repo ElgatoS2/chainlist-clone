@@ -6,8 +6,6 @@ import * as chains from "wagmi/chains";
 function App() {
 	const [newData, addNewData] = useState(Object.entries(chains));
 
-	console.log("all chains", newData);
-
 	return (
 		<div className="App">
 			<div className="App__Hero">
