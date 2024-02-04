@@ -20,17 +20,12 @@ const CustomButtons = ({ buttonType, buttonClass, name, id }) => {
 	};
 
 	return (
-		<button
-			style={{
-				background: account.chainId == id && "red",
-				color: account.chainId == id && "white",
-			}}
-			onClick={() => handleClick(name)}
-			className={buttonClass}
-		>
+		<button onClick={() => handleClick(name)} className={buttonClass}>
 			{account.isConnected
 				? buttonType == 1
 					? account.address.slice(0, 4) + "..." + account.address.slice(-4)
+					: account.chainId == id
+					? "Network Added"
 					: "Add Network"
 				: "Connect Wallet"}
 		</button>

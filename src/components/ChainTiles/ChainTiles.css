@@ -47,6 +47,14 @@
 	border-radius: 30px;
 	font-size: 100%;
 	background-color: inherit;
+	transition: color 10;
+	transition-timing-function: ease-in-out;
+	animation-duration: 200;
+}
+
+.ChainTiles__Connect-button1:hover {
+	background-color: var(--bg_blue);
+	color: white;
 }
 
 .ChainTiles__Connect-button2 {
