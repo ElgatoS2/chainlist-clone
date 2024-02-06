@@ -3,7 +3,21 @@
 	padding: 2rem 2rem 0 2rem;
 	background-color: white;
 	height: 230px;
+
 	border-radius: 10px;
+	box-shadow: var(--box_shadow);
+}
+
+.contImg {
+	display: grid;
+	place-content: center;
+	width: fit-content;
+}
+
+.ChainImg {
+	margin: 0 1rem 1.5rem;
+	border-radius: 10px;
+	width: calc(100% - 2.5rem);
 	box-shadow: var(--box_shadow);
 }
 

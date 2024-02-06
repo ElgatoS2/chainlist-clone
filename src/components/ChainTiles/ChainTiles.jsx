@@ -25,9 +25,6 @@ function ChainTiles({ id, currency, name }) {
 					name={name}
 					id={id}
 				/>
-				<button className="ChainTiles__Connect-button2">
-					<FiChevronDown />
-				</button>
 			</div>
 		</div>
 	);

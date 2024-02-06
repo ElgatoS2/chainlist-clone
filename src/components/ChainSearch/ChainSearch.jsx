@@ -4,22 +4,23 @@ import CustomButtons from "../CustomButtons";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
-function ChainSearch({ addNewData, chains }) {
+function ChainSearch({ addNewData, chains, unfiltData }) {
 	const [searchParams, setSearchParams] = useSearchParams("");
 	const [inputData, setInputData] = useState(searchParams.get("search"));
 
 	useEffect(() => {
 		inputData && setSearchParams({ search: inputData });
+		inputData == "" && setSearchParams({ search: "" });
 
 		if (inputData) {
 			const newMap = Object.entries(chains).filter((key) =>
 				key[1]?.name.toLowerCase().includes(inputData.toLowerCase())
 			);
 			addNewData(newMap);
+		} else if (inputData == "") {
+			addNewData(unfiltData);
 		}
 	}, [inputData]);
-
-	const createFilter = (event) => {};
 
 	return (
 		<div className="ChainSearch">
@@ -28,7 +29,6 @@ function ChainSearch({ addNewData, chains }) {
 				<input
 					value={inputData ? inputData : ""}
 					onChange={(e) => setInputData(e.target.value)}
-					// onChange={createFilter}
 					type="text"
 					placeholder="ETH, Fantom, ..."
 				/>

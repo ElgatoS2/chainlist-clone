@@ -70,10 +70,18 @@
 	border: none;
 	box-shadow: 0 8px 15px rgba(195, 191, 191, 0.6);
 }
+/* .button1:hover {
+	background: var(--bg_blue2);
+} */
 
 .button2 {
 	margin-bottom: 2rem;
 }
+
+/* .button2:hover {
+	outline: auto;
+	outline-width: 1px;
+} */
 
 .Hero__Container-git {
 	display: flex;

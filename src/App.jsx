@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 	const [newData, addNewData] = useState(Object.entries(chains));
+	const [unfiltData, setUnfiltData] = useState(newData);
 
 	return (
 		<BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
 										chains={chains}
 										newData={newData}
 										addNewData={addNewData}
+										unfiltData={unfiltData}
 									/>
 								</div>
 
