@@ -1,21 +1,34 @@
 import "./ChainSearch.css";
 import { ImSearch } from "react-icons/im";
 import CustomButtons from "../CustomButtons";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function ChainSearch({ addNewData, chains }) {
-	const createFilter = (event) => {
-		const newMap = Object.entries(chains).filter((key) =>
-			key[1]?.name.toLowerCase().includes(event.target.value.toLowerCase())
-		);
-		addNewData(newMap);
-	};
+	const [searchParams, setSearchParams] = useSearchParams("");
+	const [inputData, setInputData] = useState(searchParams.get("search"));
+
+	useEffect(() => {
+		inputData && setSearchParams({ search: inputData });
+
+		if (inputData) {
+			const newMap = Object.entries(chains).filter((key) =>
+				key[1]?.name.toLowerCase().includes(inputData.toLowerCase())
+			);
+			addNewData(newMap);
+		}
+	}, [inputData]);
+
+	const createFilter = (event) => {};
 
 	return (
 		<div className="ChainSearch">
 			<div className="ChainSearch__Search">
 				<p>Search Networks</p>
 				<input
-					onChange={createFilter}
+					value={inputData ? inputData : ""}
+					onChange={(e) => setInputData(e.target.value)}
+					// onChange={createFilter}
 					type="text"
 					placeholder="ETH, Fantom, ..."
 				/>

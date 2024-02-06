@@ -1,29 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Hero, ChainList, ChainSearch } from "./components";
 import * as chains from "wagmi/chains";
+import { chain as chainData } from "./data/chainData";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 	const [newData, addNewData] = useState(Object.entries(chains));
 
 	return (
-		<div className="App">
-			<div className="App__Hero">
-				<Hero />
-			</div>
-
-			<div className="App__Scroll">
-				<div className="App__Scroll-Search">
-					<ChainSearch
-						chains={chains}
-						newData={newData}
-						addNewData={addNewData}
-					/>
+		<BrowserRouter>
+			<div className="App">
+				<div className="App__Hero">
+					<Hero />
 				</div>
 
-				<ChainList newData={newData} />
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<div className="App__Scroll">
+								<div className="App__Scroll-Search">
+									<ChainSearch
+										chains={chains}
+										newData={newData}
+										addNewData={addNewData}
+									/>
+								</div>
+
+								<ChainList newData={newData} />
+							</div>
+						}
+					></Route>
+				</Routes>
 			</div>
-		</div>
+		</BrowserRouter>
 	);
 }
 
